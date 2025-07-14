@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    const person = {
+      firstName: "Eko",
+      lastName: "Khannedy"
+    }
+
+    if("firstName" in person) {
+      alert(`Hello, ${person.firstName}`);
+    } else {
+      alert("Hello");
+    }
+
+    // Note: in operator hanya mengecek sebuah property/index ada atau tidak, jika nilai property/index tersebut undefined/null, maka hasilnya tetap true
+
+    const student = {
+      firstName: "Eko",
+      middleName: undefined
+    }
+
+    if("middleName" in student) {
+      alert(`Hello, ${student.middleName}`);
+    } else {
+      alert("Hello");
+    }
+
+    const names = [null, "Kurniawan", null];
+    const result= 0 in names;
+    document.writeln(`<p>${ result }</p>`)
+
+  </script>
+</body>
+
+</html>
