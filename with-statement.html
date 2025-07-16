@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    const person = {
+      firstName: "Eko",
+      middleName: "Kurniawan",
+      lastName: "Khannedy"
+    };
+
+    // tanpa with statement
+    console.info(person.firstName);
+    console.info(person.middleName);
+    console.info(person.lastName);
+    console.info("==== BATAS ====");
+
+    // penyebab with statement tidak direkomendasikan, yang menyebabkan konstanta 2 ini tidak bisa diakses lagi
+    const firstName = "Budi";
+    const lastName = "Nugraha";
+
+    // dengan with statement. Do note untuk Js baru ini tidak direkomendasikan, karena kadang membuat kode menjadi ambigu (terutama oleh programmer" senior)
+    with(person) {
+      console.log(firstName);
+      console.log(middleName);
+      console.log(lastName);
+    }
+
+  </script>
+</body>
+
+</html> 
