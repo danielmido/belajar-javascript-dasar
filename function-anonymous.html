@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    // membuat anonymous function tidak bisa seperti ini (membuat function dengan cara biasa tanpa nama saja) - ini akan error
+    /*
+    function(parameter) {
+      // ~ == blok kode fungsi == ~
+    }
+    */
+
+    // harus seperti ini, fungsi tanpa nama yang dimasukan ke variabel
+    const say = function(name) {
+      document.writeln(`<p>Hello ${name}</p>`);
+    }
+
+    say("Eko");
+    say("Budi");
+
+    // atau bisa juga seperti ini, dengan memasukan anonymous function ke dalam parameter fungsi lain (menjadi callback) - cocok untuk penggunaan fungsi yang sederhana dan tidak dipakai berulang sebagai callback di suatu fungsi lain
+    function giveMeName(callback) {
+      callback("Eko");
+    }
+
+    giveMeName(function(name) {
+      document.writeln(`<p>Hi ${name}</p>`);
+    })
+
+    // Alih-alih seperti ini
+    /*
+    giveMeName(say);
+    */
+
+  </script>
+</body>
+
+</html>

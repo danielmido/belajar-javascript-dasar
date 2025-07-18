@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    function outer() {
+      // function didalam function, berguna saat ingin meng-breakdown fungsi yang secara keseluruhan terlalu besar dengan cara membaginya ke beberapa fungsi inner yang lebih kecil hanya untuk penggunaan didalam fungsi tersebut
+      function inner() {
+        console.info("inner");
+      }
+
+      inner();
+      inner();
+    }
+
+    outer();
+    // akan menghasilkan error: cannot access inner function
+    /* inner() */
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    function sayHello(name) {
+      document.writeln(`<p>Hello ${name}</p>`);
+    }
+
+    sayHello("Eko");
+
+    const say = sayHello;
+    say("Budi");
+
+    // function di dalam parameter (disebutnya callback)
+    function giveMeName(callback) {
+      callback("Anton"); // sayHello("Eko");
+    }
+
+    giveMeName(sayHello);
+
+    // ==== Bisa juga ====
+    /*
+    giveMeName(say); // giveMeName(sayHello);
+    */
+
+    // ==== Atau bisa juga ====
+    /*
+    function giveMeName(callback) {
+      callback;
+    }
+
+    giveMeName(sayHello("Dewa"));
+    */
+
+  </script>
+</body>
+
+</html>

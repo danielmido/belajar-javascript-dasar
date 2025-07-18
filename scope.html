@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    // global scope (seluruh isi kode dibawah sini)
+    let counter = 0;
+
+    function hitMe() {
+      // local scope hitMe (seluruh isi kode dibawah sini)
+      counter++;
+    }
+
+    function other() {
+      // local scope other (seluruh isi kode dibawah sini)
+    }
+
+    hitMe();
+    hitMe();
+
+    console.info(counter);
+
+    // ==== konteks lain ====
+    function first() {
+      // local scope first
+      let firstVariable = "First";
+
+      function firstNested() {
+        // local scope firstNested - ini bisa mengakses firstVariable
+        console.info(firstVariable);
+        const firstNestedVariable = "First Nested";
+      }
+
+      // ini tidak bisa, karena local scope firstNested ada dibawah scope first (tempat console.info ini berada)
+      /*
+      console.info(firstNestedVariable);
+      */
+    }
+
+    function second() {
+      // local scope second
+      let secondVariable = "Second";
+
+      // ini juga akan menghasilkan error variable not defined - walau sama" local scope tetapi tidak bisa saling akses karena local scope-nya beda
+      /*
+      console.info(firstVariable);
+      */
+    }
+
+    // ini tentunya bisa
+    first();
+    second();
+
+    // 2 console.info ini akan menghasilkan error variable not defined
+    /*
+    console.info(firstVariable);
+    console.info(secondVariable);
+    */
+
+  </script>
+</body>
+
+</html>
