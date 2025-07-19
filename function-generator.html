@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    // function generator, untuk menghasilkan data "generator" yang dapat di-iterasi, mirip array (dalam konteks iterable) tetapi bukan array
+    function* createNames() {
+      yield "Eko";
+      yield "Kurniawan";
+      yield "Khannedy";
+    }
+
+    console.info(createNames());
+
+    const names = createNames();
+
+    // bukti kalau ini bukan array, jalankan ini maka akan mendapatkan hasil undefined
+    /*
+    console.info(names[0]);
+    */
+
+    // ini cara memanggil datanya, menggunakan for-of (karena datanya iterable)
+    for (const name of names) {
+      console.info(name);
+    }
+
+    // ==== lazy evaluation ====
+    // lazy
+    function* buatGanjil(value) {
+      for (let i = 1; i <= value; i++) {
+        if (i % 2 === 1) {
+          console.info(`Yield ${i}`);
+          yield i;
+        }
+      }
+    }
+
+    // eager
+    function* buatGanjilArray(value) {
+      const result = [];
+      for (let i = 1; i <= value; i++) {
+        if (i % 2 === 1) {
+          console.info(`Yield ${i}`);
+          yield i;
+        }
+      }
+      return result;
+    }
+
+    /*
+    const numbers = buatGanjil(100);
+    for (const number of numbers) {
+      console.info(number);
+    }
+
+    // gunakan ini untuk membuktikan lazyness function generator ini, dia hanya akan mengambil data hanya saat dibutuhkan saja (sehingga hemat resource, cocok untuk penggunaan di konteks yang butuh ini)
+    console.info(numbers.next().value);
+    console.info(numbers.next().value);
+    console.info(numbers.next().value);
+    */
+
+    const numbers = buatGanjilArray(100);
+    for (const number of numbers) {
+      console.info(number);
+    }
+
+    // bedanya apa? kalau lazy, dia hanya yield data setiap kali datanya diperlukan; jika eager, maka semua data akan di-yield terlebih dahulu sebelum datanya akan digunakan
+
+  </script>
+</body>
+
+</html>

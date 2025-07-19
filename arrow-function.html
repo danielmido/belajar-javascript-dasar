@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    // mirip anonymous function (tidak bisa berdiri sendiri), tetapi dengan limitasi spesifik (seperti tidak ada arguments, gak bisa akses this, super, dll)
+
+    /*
+    // gak bisa seperti ini (error)
+    (name) = {
+      // kode blok
+    }
+    */
+
+    // seperti ini
+    /*
+    const sayHello = (name) => {
+      const say = `Hello ${name}`;
+      console.info(say);
+    }
+
+    sayHello("Eko");
+    */
+
+    // bisa juga tanpa kurawal (tetapi hanya bisa satu baris)
+    const sayHello = (name) => console.info(`Hello ${name}`);
+    sayHello("Eko");
+
+    // arrow function return value (dengan kurawal pakai return, kalau tidak gak usah)
+    const sum = (first, second) => {
+      return first + second;
+    }
+
+    /*
+    // versi satu baris
+    const sum = (first, second) => first + second;
+    */
+    console.info(sum(100, 100));
+
+    // arrow function tanpa kurung parameter (hanya bisa kalau parameternya cuman satu)
+    /*
+    const sayHello = name => console.info(`Hello ${name}`);
+    */
+
+    // arrow function sebagai parameter
+    function giveMeName(callback) {
+      callback("Eko");
+    }
+    
+    giveMeName(name => console.info(`Hello ${name}`));
+
+    /*
+    // Anonymous Function
+    giveMeName(function(name) {
+      console.info(`Hello ${name}`);
+    })
+    */
+
+
+  </script>
+</body>
+
+</html>
