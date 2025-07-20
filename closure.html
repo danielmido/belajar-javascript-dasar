@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    // cara kita mem-bundle local scope yang ada disuatu fungsi keluar dari scope-nya (baik ke local scope diatasnya maupun global)
+    function createAdder(value) {
+      const owner = "Eko";
+
+      function add(param) {
+        console.info(owner);
+        return value + param;
+      }
+
+      return add;
+    }
+
+    /*
+    // Cara kerja const dibawah (closure)
+    function addTwo(param) {
+      console.info("Eko");
+      return 2 + param;
+    }
+    */
+    const addTwo = createAdder(2);
+    console.info(addTwo(10));
+    console.info(addTwo(20));
+
+    /*
+    // Cara kerja const dibawah (closure)
+    function addTwo(param) {
+      console.info("Eko");
+      return 10 + param;
+      }
+      */
+    const addTen = createAdder(10);
+    console.info(addTen(10));
+    console.info(addTen(20));
+
+  </script>
+</body>
+
+</html>

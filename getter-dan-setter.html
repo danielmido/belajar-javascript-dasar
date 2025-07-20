@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    // note: fitur ini kurang populer dikalangan programmer Js, sebagai common knowledge saja kalau fitur ini sudah ada juga di Js (jadi seperti bahasa pemrograman yang lain seperti PHP, Java, dll)
+    const person = {
+      firtsName: "Eko",
+      lastName: "Khannedy",
+      // fitur getter di object
+      get fullName() {
+        return `${this.firtsName} ${this.lastName}`;
+      },
+      // fitur setter di object
+      set fullName(value) {
+        const array = value.split(" ");
+        this.firtsName = array[0];
+        this.lastName = array[1];
+      }
+    };
+
+    person.fullName = "Budi Nugraha"
+    console.table(person);
+
+    person.fullName = "Joko Morro"
+    console.table(person);
+
+    person.fullName = "Eko Khannedy"
+    console.table(person);
+
+    /*
+    person.firtsName = "Budi";
+    console.info(person.fullName());
+    */
+
+  </script>
+</body>
+
+</html>

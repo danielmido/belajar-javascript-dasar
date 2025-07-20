@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    // fungsi didalam object - sering juga disebut object method
+
+    /*
+    // penggunaan fungsi biasa yang seperti ini juga boleh
+    function sayHello(name) {
+      alert(`Hello ${name}`);
+    }
+    */
+
+    const person = {
+      name: "Eko",
+      sayHello: name => {
+        alert(`Hello ${name}`);
+      }
+    };
+
+    /*
+    // Bisa juga dengan cara seperti ini, cocok untuk menambahkan fungsi ke object yang sudah ada (misal ambil dari API, dll)
+    const person = {
+      name:"Eko",
+    }
+
+    person.sayHello = function(name) {
+      alert(`Hello ${name}`);
+    }
+    */
+
+    person.sayHello('Budi');
+
+  </script>
+</body>
+
+</html>

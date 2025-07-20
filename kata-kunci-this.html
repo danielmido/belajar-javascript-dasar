@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    console.info(this); // hasil yang ini, this = window
+
+    // ==== contoh lain ====
+    function sample() {
+      console.info(this);
+
+      function inner() {
+        console.info(this);
+      }
+
+      inner();
+    }
+
+    sample(); // hasil yang ini, this-nya "window" semua
+
+    // ==== contoh lain ====
+    const person = {
+      name: "Eko",
+      // hasil yang ini, this = person (object pemilik si function/method)
+      sayHello: function(value) {
+        console.info(`Hello ${value}, My name is ${this.name}`);
+      }
+    };
+
+    person.sayHello("Budi");
+    person.sayHello("Joko");
+
+  </script>
+</body>
+
+</html>

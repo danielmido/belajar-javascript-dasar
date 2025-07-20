@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    // secara fungsi saja, hanya saja perhatikan limitasi arrow function yang tetap berlaku di konteks object method ini (terutama pada bagian penggunaan this)
+    const person = {
+      name: "Eko",
+      sayHello: name => {
+        console.info(this); // this = window disini
+        console.info(`Hello ${name}, my name is ${this.name}`); // perhatikan perbedaannya disini, hasilnya kosong di console.info pada bagian ${this.name}
+      }
+    };
+
+    person.sayHello("Budi");
+
+  </script>
+</body>
+
+</html>
