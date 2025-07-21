@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    // gunakan cara ini untuk membedakan scope-nya (bisa digunakan tanpa fungsi)
+    {
+      const names = ["Eko", "Kurniawan", "Khannedy", "Budi", "Joko"];
+
+      // penggunaan destructuring
+      const [firstName, middleName, lastName, ...others] = names
+
+      /*
+      // bisa juga mengabaikan data lain didalam array-nya
+      const [firstName, middleName, lastName] = names
+      */
+
+      /*
+      const firstName = names[0];
+      const middleName = names[1];
+      const lastName = names[2];
+      */
+
+      console.info(firstName);
+      console.info(middleName);
+      console.info(lastName);
+    }
+
+    // ==== contoh objek ====
+    {
+      const person = {
+        firstName: "Eko",
+        lastName: "Khannedy",
+        address: {
+          street: "Jalan belum ada",
+          city: "Jakarta",
+          country: "Indonesia"
+        },
+        hobby: "Game",
+        channel: "PZN"
+      };
+
+      const { firstName, lastName, address, ...others } = person;
+      console.info(firstName);
+      console.info(lastName);
+      console.info(address);
+      console.info(others);
+
+      /*
+      // bisa juga dengan cara ini (nested destructuring); note: address yang di-nested-desructured tidak bisa diakses lagi - akses child-nya
+      const { firstName, lastName, address: {street, city, country}, ...others } = person;
+      console.info(firstName);
+      console.info(lastName);
+      console.info(street);
+      console.info(city);
+      console.info(country);
+      console.info(others);
+      */
+    }
+
+    // ==== contoh destructuring di-function parameter ====
+    {
+      function displayPerson({ firstName, middleName, lastName }) {
+        console.info(firstName);
+        console.info(middleName);
+        console.info(lastName);
+      }
+
+      const person = {
+        firstName: "Eko",
+        middleName: "Kurniawan",
+        lastName: "Khannedy"
+      }
+
+      displayPerson(person);
+    }
+
+    // ==== contoh destructuring di-function parameter (array) ====
+    {
+      function sum([first, second]) {
+        return first + second;
+      }
+
+      console.info(sum([1, 1]));
+      console.info(sum([10, 10]));
+    }
+
+    // ==== default value destructuring array ====
+    {
+      const names = ["Eko", "Budi", "Joko"];
+      const [firstName, middleName = "Kurniawan", lastName = "Khannedy"] = names;
+
+      console.info(firstName);
+      console.info(middleName);
+      console.info(lastName);
+    }
+    {
+      const person = {
+        firstName: "Eko",
+        middleName: "Budi",
+        lastName: "Khannedy",
+      };
+
+      const { firstName, middleName = "Kurniawan", lastName } = person;
+      console.info(firstName);
+      console.info(middleName);
+      console.info(lastName);
+    }
+
+    // ==== menggunakan nama variabel lain ====
+    {
+      const person = {
+        firstName: "Eko",
+        middleName: "Budi",
+        lastName: "Khannedy",
+      };
+
+      const {
+        firstName: namaDepan,
+        middleName: namaTengah,
+        lastName: namaBelakang
+      } = person;
+
+      console.info(namaDepan);
+      console.info(namaTengah);
+      console.info(namaBelakang);
+    }
+
+  </script>
+</body>
+
+</html>

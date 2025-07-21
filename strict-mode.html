@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Js</title>
+</head>
+
+<body>
+  <script>
+    // strict mode, cocok untuk tidak membiasakan bad practices; ini juga mencegah adanya silent error (mengubahnya menjadi throw error, yang menghentikan laju kode) sehingga kode Js yang dibuat jauh lebih aman
+    'use strict';
+    
+    function useStrictMode() {
+      const person = {
+        firstName: "Eko"
+      };
+      /*
+      // ini akan error karena penggunaan with di strict mode dilarang
+      with(person) {
+        console.info(firstName);
+      }
+      */
+
+      console.info(person.firstName);
+    }
+
+    useStrictMode();
+
+  </script>
+</body>
+
+</html>
